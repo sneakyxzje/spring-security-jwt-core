@@ -1,5 +1,8 @@
 package com.sneakyzxje.libs.security.properties;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -10,7 +13,16 @@ public class SecurityProperties {
     
     private boolean enabled = false;
     private Authentication authentication = new Authentication();
+    private List<String> endpoints = new ArrayList<>();
 
+    public List<String> getEndpoints() {
+        return this.endpoints;
+    }
+
+    public void setEndpoints(List<String> endpoints) {
+        this.endpoints = endpoints;
+    }
+    
     
     public boolean isEnabled() {
         return this.enabled;
