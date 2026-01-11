@@ -2,3 +2,4 @@ com.sneakyzxje.libs.security.security.SecurityConfiguration
 com.sneakyzxje.libs.security.utils.JwtUtils
 com.sneakyzxje.libs.security.filter.JwtFilter
 com.sneakyzxje.libs.security.security.exception.JwtEntryPoint
+com.sneakyzxje.libs.security.security.exception.JwtAccessDeniedHandler
