@@ -1,5 +1,7 @@
 package com.sneakyzxje.libs.security;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -22,12 +24,16 @@ public class JwtUtilsTest {
 
         JwtUtils jwtUtils = new JwtUtils(securityProperties);
 
-        String token = jwtUtils.createToken("test-user");
+        List<String> roles = List.of("ADMIN", "USER");
+        String token = jwtUtils.createToken("test-user", roles);
         System.out.println("Token generated: " + token);
         
         String username = jwtUtils.extractUsername(token);
         System.out.println("Extract username: " + username);
         Assertions.assertEquals("test-user", username);
+
+        List<String> extRole = jwtUtils.extractRoles(token);
+        System.out.println("Extract roles: " + extRole);
 
         boolean isValid = jwtUtils.validateToken(token);
         Assertions.assertTrue(isValid);
