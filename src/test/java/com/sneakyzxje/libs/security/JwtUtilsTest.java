@@ -25,9 +25,10 @@ public class JwtUtilsTest {
         JwtUtils jwtUtils = new JwtUtils(securityProperties);
 
         List<String> roles = List.of("ADMIN", "USER");
-        String token = jwtUtils.createToken("test-user", roles);
+        String token = jwtUtils.createAccessToken("test-user", roles);
+        String refreshToken = jwtUtils.createRefreshToken().toString();
         System.out.println("Token generated: " + token);
-        
+        System.out.println("Refresh token generated: " + refreshToken);
         String username = jwtUtils.extractUsername(token);
         System.out.println("Extract username: " + username);
         Assertions.assertEquals("test-user", username);
